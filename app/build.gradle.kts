@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.gson)
+    implementation(libs.coil.kt)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
