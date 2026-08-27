@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.jamiltonmentoria.nexusstore"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.jamiltonmentoria.nexusstore"
@@ -53,6 +53,7 @@ kotlin {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.material)

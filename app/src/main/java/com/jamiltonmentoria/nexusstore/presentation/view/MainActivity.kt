@@ -1,9 +1,16 @@
 package com.jamiltonmentoria.nexusstore.presentation.view
 
 import android.os.Bundle
+import android.animation.ObjectAnimator
+import android.animation.AnimatorSet
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.jamiltonmentoria.nexusstore.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 
 import android.view.animation.AnimationUtils
 import com.jamiltonmentoria.nexusstore.R
@@ -19,7 +26,40 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
+
+        splashScreen.setOnExitAnimationListener { splashScreenProvider ->
+            val iconView = splashScreenProvider.iconView
+
+            // Floating effect (up and down)
+            val floatUp = ObjectAnimator.ofFloat(iconView, View.TRANSLATION_Y, 0f, -40f).apply {
+                duration = 500
+                interpolator = AccelerateDecelerateInterpolator()
+            }
+            val floatDown = ObjectAnimator.ofFloat(iconView, View.TRANSLATION_Y, -40f, 0f).apply {
+                duration = 500
+                interpolator = AccelerateDecelerateInterpolator()
+            }
+
+            // Fade out effect
+            val fadeOut = ObjectAnimator.ofFloat(splashScreenProvider.view, View.ALPHA, 1f, 0f).apply {
+                duration = 300
+            }
+
+            // Combine animations
+            AnimatorSet().apply {
+                playSequentially(floatUp, floatDown)
+                play(fadeOut).after(floatDown)
+                addListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        splashScreenProvider.remove()
+                    }
+                })
+                start()
+            }
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
