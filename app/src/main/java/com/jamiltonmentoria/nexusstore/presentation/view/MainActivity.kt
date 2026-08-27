@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         splashScreen.setOnExitAnimationListener { splashScreenProvider ->
             val iconView = splashScreenProvider.iconView
 
-            // Floating effect (up and down)
             val floatUp = ObjectAnimator.ofFloat(iconView, View.TRANSLATION_Y, 0f, -40f).apply {
                 duration = 500
                 interpolator = AccelerateDecelerateInterpolator()
@@ -42,12 +41,10 @@ class MainActivity : AppCompatActivity() {
                 interpolator = AccelerateDecelerateInterpolator()
             }
 
-            // Fade out effect
             val fadeOut = ObjectAnimator.ofFloat(splashScreenProvider.view, View.ALPHA, 1f, 0f).apply {
                 duration = 300
             }
 
-            // Combine animations
             AnimatorSet().apply {
                 playSequentially(floatUp, floatDown)
                 play(fadeOut).after(floatDown)
