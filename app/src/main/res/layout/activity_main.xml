@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -11,69 +12,84 @@
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Nexus Store" />
 
     <GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:columnCount="2"
-        android:padding="16dp"
         android:rowCount="2"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnProducts"
-            style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_margin="8dp"
-            android:padding="24dp"
             android:text="Produtos"
-            app:icon="@android:drawable/ic_menu_sort_by_size"
-            app:iconGravity="top"
-            app:iconSize="48dp" />
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:backgroundTint="@color/btn_products"
+            app:icon="@drawable/ic_shopping_bag"
+            app:iconGravity="textTop"
+            app:iconSize="48dp"
+            app:iconPadding="8dp"
+            app:iconTint="@color/white"
+            app:cornerRadius="16dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCarts"
-            style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_margin="8dp"
-            android:padding="24dp"
             android:text="Carrinho"
-            app:icon="@android:drawable/ic_dialog_info"
-            app:iconGravity="top"
-            app:iconSize="48dp" />
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:backgroundTint="@color/btn_carts"
+            app:icon="@drawable/ic_cart"
+            app:iconGravity="textTop"
+            app:iconSize="48dp"
+            app:iconPadding="8dp"
+            app:iconTint="@color/white"
+            app:cornerRadius="16dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnUsers"
-            style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_margin="8dp"
-            android:padding="24dp"
             android:text="Usuários"
-            app:icon="@android:drawable/ic_menu_myplaces"
-            app:iconGravity="top"
-            app:iconSize="48dp" />
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:backgroundTint="@color/btn_users"
+            app:icon="@drawable/ic_users"
+            app:iconGravity="textTop"
+            app:iconSize="48dp"
+            app:iconPadding="8dp"
+            app:iconTint="@color/white"
+            app:cornerRadius="16dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPosts"
-            style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_margin="8dp"
-            android:padding="24dp"
             android:text="Postagens"
-            app:icon="@android:drawable/ic_menu_send"
-            app:iconGravity="top"
-            app:iconSize="48dp" />
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:backgroundTint="@color/btn_posts"
+            app:icon="@drawable/ic_mail"
+            app:iconGravity="textTop"
+            app:iconSize="48dp"
+            app:iconPadding="8dp"
+            app:iconTint="@color/white"
+            app:cornerRadius="16dp" />
 
     </GridLayout>
 

@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name=".DummyStoreApp"
+        android:name=".NexusStoreApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,8 +16,9 @@
         android:theme="@style/Theme.NexusStore">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.view.MainActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +26,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".presentation.products.ProductListActivity" />
-        <activity android:name=".presentation.carts.CartListActivity" />
-        <activity android:name=".presentation.users.UserListActivity" />
-        <activity android:name=".presentation.posts.PostListActivity" />
+        <activity android:name=".presentation.products.ProductListActivity" android:screenOrientation="portrait" />
+        <activity android:name=".presentation.carts.CartListActivity" android:screenOrientation="portrait" />
+        <activity android:name=".presentation.users.UserListActivity" android:screenOrientation="portrait" />
+        <activity android:name=".presentation.posts.PostListActivity" android:screenOrientation="portrait" />
 
     </application>
 
