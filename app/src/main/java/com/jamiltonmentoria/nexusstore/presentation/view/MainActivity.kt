@@ -12,11 +12,22 @@ import android.os.Vibrator
 import android.os.VibrationEffect
 import android.content.Context
 import android.media.AudioManager
+import com.jamiltonmentoria.nexusstore.api.DummyJsonService
+import com.jamiltonmentoria.nexusstore.api.RetrofitCustom
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlin.getValue
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    val dummyJsonAPI by lazy {
+        RetrofitCustom().showDummyJson()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +35,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupButtons()
+
+        binding.textoResultado.text = "carregando..."
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val resposta = dummyJsonAPI.showProducts()
+            if (resposta.isSuccessful && resposta.body() != null) {
+                val listaProdutos = resposta.body()
+
+                var textoExibicao = ""
+                listaProdutos?.products?.forEach { produto ->
+                    textoExibicao += " ${produto.id}) ${produto.title} \n"
+                }
+                withContext(Dispatchers.Main) {
+                    binding.textoResultado.text = textoExibicao
+                }
+
+            } else {
+                withContext(Dispatchers.Main) {
+                    binding.textoResultado.text = "Erro ao carregar dados"
+                }
+            }
+        }
     }
 
     private fun setupButtons() {
