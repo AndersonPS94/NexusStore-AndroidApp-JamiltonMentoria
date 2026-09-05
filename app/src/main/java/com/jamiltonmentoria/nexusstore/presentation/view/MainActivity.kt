@@ -1,6 +1,7 @@
 package com.jamiltonmentoria.nexusstore.presentation.view
 
 import android.os.Bundle
+import android.content.Intent
 import android.animation.ObjectAnimator
 import android.animation.AnimatorSet
 import android.view.animation.AccelerateDecelerateInterpolator
@@ -81,6 +82,12 @@ class MainActivity : AppCompatActivity() {
                 it.startAnimation(animation)
                 audioManager.playSoundEffect(AudioManager.FX_KEY_CLICK, 1.0f)
                 vibrateDevice()
+
+                if (button == binding.btnProducts) {
+                    startActivity(Intent(this, com.jamiltonmentoria.nexusstore.presentation.products.ProductListActivity::class.java))
+                } else if (button == binding.btnPosts) {
+                    startActivity(Intent(this, com.jamiltonmentoria.nexusstore.presentation.posts.PostListActivity::class.java))
+                }
             }
         }
     }

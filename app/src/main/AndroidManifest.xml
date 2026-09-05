@@ -27,11 +27,25 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".presentation.products.ProductListActivity" android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.products.ProductListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NexusStore.Products" />
+        <activity
+            android:name=".presentation.products.ProductDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NexusStore.Products" />
+
         <activity android:name=".presentation.carts.CartListActivity" android:screenOrientation="portrait" />
         <activity android:name=".presentation.users.UserListActivity" android:screenOrientation="portrait" />
-        <activity android:name=".presentation.posts.PostListActivity" android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".presentation.posts.PostListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NexusStore.Posts" />
+        <activity
+            android:name=".presentation.posts.PostDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NexusStore.Posts" />
     </application>
 
 </manifest>

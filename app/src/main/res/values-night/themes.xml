@@ -1,5 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.NexusStore" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple</item>
+        <item name="android:statusBarColor">@color/purple</item>
+        <item name="colorSurface">#1E1E1E</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="android:windowBackground">#121212</item>
+    </style>
+
+    <style name="Theme.NexusStore" parent="Base.Theme.NexusStore" />
+
+    <style name="Theme.NexusStore.Products" parent="Theme.NexusStore">
+        <item name="colorPrimary">@color/btn_products</item>
+        <item name="android:statusBarColor">@color/btn_products</item>
+    </style>
+
+    <style name="Theme.NexusStore.Posts" parent="Theme.NexusStore">
+        <item name="colorPrimary">@color/btn_posts</item>
+        <item name="android:statusBarColor">@color/btn_posts</item>
     </style>
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
